@@ -24,17 +24,17 @@ TARGET_BOOTLOADER_BOARD_NAME := ssb504r
 TARGET_SCREEN_WIDTH := 480
 TARGET_SCREEN_HEIGHT := 850
 
-# Changed to force build too large//didn't help cause didn't see it set twice the first time, works now tho
+#max partition size reported by fastboot // 134217728
+# Changed to force build too larger size //didn't help cause didn't see it set twice the first time, works now tho
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 12335104
 
-# To Include the prebuilt stock kernel
-TARGET_PREBUILT_KERNEL := $(LOCAL_PATH)/device/maze_speed/ssb504r/stock/kernel
+# To Include the prebuilt stock kernel // comented out as it didn't seem to work
+#TARGET_PREBUILT_KERNEL := $(LOCAL_PATH)/device/maze_speed/ssb504r/stock/kernel
 
 # Recovery
 BOARD_USERDATAIMAGE_FILE_SYSTEM_TYPE := f2fs
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
-#BOARD_RECOVERYIMAGE_PARTITION_SIZE := 11948032
 BOARD_FLASH_BLOCK_SIZE := 0
 #BOARD_HAS_NO_REAL_SDCARD := true
 BOARD_HAS_LARGE_FILESYSTEM := true
@@ -45,11 +45,13 @@ BOARD_USES_MMCUTILS := true
 BOARD_SUPPRESS_EMMC_WIPE := true
 TW_INCLUDE_CRYPTO := true
 TW_INCLUDE_NTFS_3G := true
-AB_OTA_UPDATER := true
+#comented out for now, more work to get trebel going.Device will never see an official OTA likely so not needed for now
+#AB_OTA_UPDATER := true
 TW_THEME := portrait_mdpi
 TW_NO_SCREEN_BLANK := true
 TW_INTERNAL_STORAGE_PATH := "/data/media/0"
 TW_INTERNAL_STORAGE_MOUNT_POINT := "data"
+#comented out wouldn't finish build missing dependency
 #TARGET_HW_DISK_ENCRYPTION := true
 TW_CRYPTO_USE_SYSTEM_VOLD := true
 BOARD_BUILD_SYSTEM_ROOT_IMAGE := true
@@ -58,11 +60,12 @@ TW_EXTERNAL_STORAGE_MOUNT_POINT :="external_sd"
 TW_EXCLUDE_TWRPAPP := true
 TW_EXCLUDE_SUPERSU := true
 TW_EXTRA_LANGUAGES := false
-TW_DEFAULT_LANGUAGE := en-US
+#TW_DEFAULT_LANGUAGE := en-US // comented out to kill an error about unable to load `/twres/languages/en-US.xml`
 TW_EXCLUDE_ENCRYPTED_BACKUPS := true
 TW_IGNORE_MISC_WIPE_DATA := true
 TWRP_INCLUDE_LOGCAT := true
 TARGET_USES_LOGD := true
+#this flag is wrong left for archival purposes
 #BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
 TW_USE_LEDS_HAPTICS := true
 TW_USE_MODEL_HARDWARE_ID_FOR_DEVICE_ID := true
