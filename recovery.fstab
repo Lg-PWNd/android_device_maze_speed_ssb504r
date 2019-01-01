@@ -15,7 +15,7 @@
 #
 
 /boot emmc /dev/block/mmcblk0p8
-/data ext4 /dev/block/mmcblk0p25
+/data f2fs /dev/block/mmcblk0p25
 /system ext4 /dev/block/mmcblk0p23
 /cache ext4 /dev/block/mmcblk0p24
 /vendor ext4 /dev/block/mmcblk0p14
